@@ -1,0 +1,77 @@
+<app-demo></app-demo>
+<!-- <div class="container marketing">
+
+  Three columns of text below the carousel
+  <div class="row">
+    <div class="col-lg-3" *ngFor="let cusine of CusinesById">
+      <img src="{{cusine.cusineImage}}" alt=" food image" width="280" height="240">
+      <h2>{{cusine.cusineName}}</h2>
+      <p>{{cusine.cusineCost}}</p>
+      <p>{{cusine.category1}}</p>
+      <p>{{cusine.cusineSize}}</p>
+      <p><a class="btn btn-secondary"(click)="deleteCusine(cusine.cusineId)"routerLink="/favourite" role="button">delete &raquo;</a></p>
+     
+    </div>
+  </div>
+</div> -->
+<mat-tab-group mat-stretch-tabs class="example-stretched-tabs mat-elevation-z4">
+  <mat-tab>
+    <ng-template mat-tab-label style="color: blue;background-color: chartreuse;">
+
+      <h2 style="color: crimson;font-weight: 800;"> Resturants</h2>
+    </ng-template>
+
+    <div class="container mx-auto mt-4">
+      <div class="row">
+        <div class="col-md-4" *ngFor="let restaurant of resturants,let i= index">
+          <div class="card" style="width: 22rem; height: 26rem;">
+            <img class="image" [src]="image2[i+1]" height="210px" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h2 class="card-title">{{restaurant.restaurantName}}</h2>
+              <h3 class="card-subtitle mb-2 text-muted">{{restaurant.city}}</h3>
+              <!-- <h2 class="card-text">$ {{cusine.cusineCost}}</h2> -->
+              <!-- <a  class="btn mr-2" style="color: cornsilk;" (click)="addRestaurantToFavourite(restaurant.restaurantId)"> Favourite</a> -->
+              <a class="btn " style="color: cornsilk;" (click)="dalateRestaurant(restaurant.restaurantId)">Delete</a>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-tab>
+  <mat-tab>
+    <!-- <ul>
+    <li *ngFor="let cusine of CusinesById">
+      <a>
+        <img src="{{cusine.cusineImage}}" height="220" alt="">
+        <h2>{{cusine.cusineName}}</h2> -->
+    <ng-template mat-tab-label >
+
+      <h2 style="color: crimson;font-weight: 800;"> Cusines</h2>
+    </ng-template>
+
+
+    <!-- <button class="favorite " (click)="addToFavouriteCusine(cusine.cusineId)">
+                  <i class="fa fa-heart"> </i>
+                </button> -->
+    <div class="container mx-auto mt-4" >
+      <div class="row">
+        <div class="col-md-4" *ngFor="let cusine of CusinesById,let i= index">
+          <div class="card" style="width: 22rem; " >
+            <img [src]="image[i+1]" height="200px" width="200px" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h2 class="card-title">{{cusine.cusineName}}</h2>
+              <h3 class="card-subtitle mb-2 text-muted">{{cusine.resturantName}}</h3>
+              <h2 class="card-text">&#8377;{{cusine.cusineCost}}</h2>
+              <!-- <a href="#" class="btn mr-2"><i class="fas fa-link"></i> Visit Site</a>
+                    <a href="#" class="btn "><i class="fab fa-github"></i> Github</a> -->
+              <a class="btn " style="color: cornsilk;" (click)="deleteCusine(cusine.cusineId)">Delete</a>
+              <a class="btn " style="color: cornsilk;" (click)="addCusineToCart(cusine.cusineId)">Add to Cart</a>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-tab>
+</mat-tab-group>

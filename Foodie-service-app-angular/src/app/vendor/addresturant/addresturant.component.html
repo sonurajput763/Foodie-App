@@ -1,0 +1,48 @@
+<app-nav></app-nav>
+<section class="vh-100 gradient-custom">
+  <div class="container py-5 h-100">
+    <div class="row justify-content-center align-items-center h-100">
+      <div class="col-12 col-lg-9 col-xl-7">
+        <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+          <div class="card-body p-4 p-md-5">
+            <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Resturant Adding Form</h3>
+            <form>
+
+              <div class="row">
+                <div class="col-md-6 mb-4">
+
+                  <div class="form-outline">
+                    <input type="text"name="name" id="Resturant"[(ngModel)]="restaurant.restaurantName" class="form-control form-control-lg" />
+                    <label class="form-label" for="Resturant">Resturant Name</label>
+                  </div>
+
+                </div>
+                <div class="col-md-6 mb-4">
+
+                  <div class="form-outline">
+                    <input type="file"name="logo" id="logo" (change)="onChange($event)" name="restaurantName" class="form-control form-control-lg" />
+                    <label class="form-label" for="logo">logo</label>
+                  </div>
+
+                </div>
+
+                <div class="row">
+                  <div class="col-12">
+
+                   <input type="text"[(ngModel)]="restaurant.city" name="city"class="form-control form-control-lg">
+                    <label class="form-label select-label">City</label>
+
+                  </div>
+                </div>
+
+                <div class="mt-4 pt-2">
+                  <input class="btn btn-primary btn-lg" (click)="saveRestaurant()"type="submit" value="Submit" />
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

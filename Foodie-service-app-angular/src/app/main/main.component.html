@@ -1,0 +1,123 @@
+<app-demo></app-demo>
+
+
+<section style="background: -webkit-linear-gradient(to bottom right, rgba(240, 147, 251, 1), rgba(245, 87, 108, 1));
+background: linear-gradient(to bottom right, rgb(199, 205, 211), rgb(211, 180, 204))" >
+
+<br><br><br><br><br>
+<div style="text-align: center;">
+  <form class="example" name="form" (ngSubmit)="onSearchCusine(search)"  #search="ngForm">
+    <input type="text" [(ngModel)]="searchinput" placeholder="Search.." name="searchinput" (keyup.enter)="onSearchCusine(search)">
+    <button class="btn info" type="submit" ><i class="fa fa-search"></i></button>
+  </form>
+</div>
+
+
+
+  <!-- <form class="form-inline" >
+    <div class="select">
+        <select class="form-control col-lg-8"[(ngModel)]="cityname" (ngModelChange)="oncityShowCusinesAndResturants($event)" name="citys">
+          <option value="" disabled>Choose option</option>  
+          <option *ngFor="let restaurant of restarunts" >
+               {{restaurant.city}}
+            </option>    
+        </select>
+       
+    </div> 
+</form> -->
+<br><br><br><br>
+<div style="text-align: center;">
+<!-- <h4>selete city</h4> -->
+<mat-form-field appearance="fill">
+  <mat-label>selete city </mat-label>
+  <mat-select  (selectionChange)="oncityShowCusinesAndResturants($event.value.city)" >
+    <mat-option *ngFor="let restaurant of restarunts" [value]="restaurant" >
+      {{restaurant.city}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+</div>
+  <!-- <div style="align-items: center;">
+    <h4>Select City</h4>[ngModel]="selectedDevice" (ngModelChange)="onChange($event)" name="deviceText"
+    <mat-form-field appearance="fill">
+      <mat-label></mat-label>
+      <mat-select >
+        <mat-option *ngFor="let restaurant of restarunts" ">
+          {{restaurant.city}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div> -->
+
+
+
+
+
+
+
+
+  <mat-tab-group mat-stretch-tabs class="example-stretched-tabs mat-elevation-z4">
+    <mat-tab>
+      <ng-template mat-tab-label style="color: blue;background-color: chartreuse;">
+       
+       <h2 style="color: crimson;font-weight: 800;"> Cusines</h2>
+      </ng-template>
+    
+  
+      <div class="container mx-auto mt-4" style="">
+        <div class="row">
+          <div class="col-md-4"*ngFor="let cusine of cusinesToDisplay,let i=index">
+            <div class="card" style="width: 22rem; height: 29rem;" >
+        <img [src]="image[i]" height="210px" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h2 class="card-title" >{{cusine.cusineName}}</h2>
+              <h3 class="card-subtitle mb-2 text-muted col">{{cusine.resturantName}}</h3>
+              <h3 class="card-text col">{{cusine.cusineSize}}</h3>
+          <h2 class="card-text">&#8377; {{cusine.cusineCost}}</h2>
+             <a  class="btn mr-2" style="color: cornsilk;" (click)="addToFavouriteCusine(cusine.cusineId)">Add to Favourite</a>
+            <a  class="btn "style="color: cornsilk;" (click)="addCusineToCart(cusine.cusineId)">Add to Cart</a>
+        </div>
+        </div>
+          </div></div>
+      </div>
+    </mat-tab>
+
+    <mat-tab>
+      <ng-template mat-tab-label style="color: blue;background-color: chartreuse;">
+        <!-- <mat-icon class="example-tab-icon">thumb_up</mat-icon> -->
+      
+        <h2 style="color: crimson;font-weight: 800;"> restaurants</h2>
+
+      </ng-template>
+      <!-- <div class="container marketing"> -->
+
+        <!-- Three columns of text below the carousel -->
+        <!-- <div class="row">
+          <div class="col-lg-3" *ngFor="let restaurant of restarunts">
+            <img src="{{restaurant.logo}}" alt="Generic placeholder image" width="280" height="240">
+            <h2>{{restaurant.restaurantName}}</h2>
+            <p>{{restaurant.city}}</p>
+            <p><a class="btn btn-secondary"(click)="addRestaurantToFavourite(restaurant.restaurantId)" role="button">Add to Favourite &raquo;</a></p> -->
+          <!-- </div>/.col-lg-4 -->
+        <!-- </div>
+      </div> -->
+      <div class="container mx-auto mt-4" style="">
+        <div class="row">
+          <div class="col-md-4"*ngFor="let restaurant of arrRestaruntTab,let i=index">
+            <div class="card" style="width: 22rem; height: 26rem;" >
+        <img [src]="image2[i]" height="210px" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h2 class="card-title" >{{restaurant.restaurantName}}</h2>
+              <h3 class="card-subtitle mb-2 text-muted">{{restaurant.city}}</h3>
+          <!-- <h2 class="card-text">$ {{cusine.cusineCost}}</h2> -->
+             <a  class="btn mr-2" style="color: cornsilk;" (click)="addRestaurantToFavourite(restaurant.restaurantId)"> Favourite</a>
+            <!-- <a  class="btn "style="color: cornsilk;" (click)="addCusineToCart(cusine.cusineId)">Cart</a> -->
+        </div>
+        </div>
+          </div></div>
+      </div>
+        </mat-tab>
+
+
+  </mat-tab-group>
+</section>

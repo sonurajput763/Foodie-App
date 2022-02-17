@@ -1,0 +1,19 @@
+<app-nav></app-nav>
+
+
+
+    <div class="container mx-auto mt-4" style="">
+      <div class="row">
+        <div class="col-md-4"*ngFor="let cusine of cusines,let i = index">
+          <div class="card" style="width: 22rem; height: 26rem;" >
+      <img [src]="image[i]" height="210px" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h2 class="card-title" >{{cusine.cusineName}}</h2>
+            <h3 class="card-subtitle mb-2 text-muted">{{cusine.resturantName}}</h3>
+        <h2 class="card-text">&#8377; {{cusine.cusineCost}}</h2>
+           <a  class="btn mr-2" style="color: cornsilk;" (click)="deletecusine(cusine.cusineId)"> Delete</a>
+          <!-- <a  class="btn "style="color: cornsilk;" (click)="addCusineToCart(cusine.cusineId)">Cart</a> -->
+      </div>
+      </div>
+        </div></div>
+    </div>

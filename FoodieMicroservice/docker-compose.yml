@@ -1,0 +1,96 @@
+version: "3.3"
+services:
+  mysqlservice:
+    image: mysql:5.5
+    ports:
+      - 3306:3306
+    container_name: mysql-container
+    network_mode: host
+    hostname: localhost
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USERNAME: user
+      MYSQL_PASSWORD: root
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+  mongodbservice:
+    image: mongo:latest
+    container_name: mongo-container
+    network_mode: host
+    hostname: localhost
+    ports:
+      - 27017:27017
+
+  discoveryservice:
+    image: eureka-discovery-service
+    build: DiscoveryService/
+    restart: always
+    network_mode: host
+
+  apigatewayservice:
+    image: api-service
+    build: ApiGateway/
+    restart: always
+    network_mode: host
+    ports:
+      - 9000:9000
+
+  cartservice:
+    container_name: cart-service
+    build: CartService/
+    hostname: localhost
+    network_mode: host
+    ports:
+      - 9001:9001
+    depends_on:
+      - mongodbservice
+      - apigatewayservice
+    restart: always
+
+  favouriteservice:
+    container_name: favourite-service
+    build: FavouriteService/
+    hostname: localhost
+    network_mode: host
+    ports:
+      - 9002:9002
+    depends_on:
+      - mongodbservice
+      - apigatewayservice
+    restart: always
+
+  foodieservice:
+    container_name: foodie-service
+    build: FoodieService/
+    hostname: localhost
+    network_mode: host
+    ports:
+      - 9003:9003
+    depends_on:
+      - mongodbservice
+      - apigatewayservice
+    restart: always
+
+  userauthservice:
+    container_name: user-authentication-service
+    build: UserAuthenticationService/
+    hostname: localhost
+    network_mode: host
+    ports:
+      - 9004:9004
+    depends_on:
+      - mongodbservice
+      - apigatewayservice
+    restart: always
+
+  vendorservice:
+    container_name: vendor-service
+    build: vendorService/
+    hostname: localhost
+    network_mode: host
+    ports:
+      - 9005:9005
+    depends_on:
+      - mongodbservice
+      - apigatewayservice
+    restart: always
+

@@ -1,0 +1,57 @@
+<app-demo></app-demo>
+<section style="background: -webkit-linear-gradient(to bottom right, rgba(240, 147, 251, 1), rgba(245, 87, 108, 1));
+background: linear-gradient(to bottom right, rgb(199, 205, 211), rgb(211, 180, 204))" >
+<br><br><br><br><br><br><br><br><br>
+
+<div class="card">
+   
+    <div class="row">
+        <div class="col-md-8 cart">
+            <div class="title">
+                <div class="row">
+                    <div class="col">
+                        <h4><b>Shopping Cart</b></h4>
+                    </div>
+                    <div class="col align-self-center text-right text-muted">{{itemCount}} items</div>
+                </div>
+            </div>
+            <div class="row border-top border-bottom">
+                <div class="row main align-items-center" *ngFor="let cusine of CusinesById,let i=index">
+                    <div class="col-2"><img class="img-fluid" [src]="image[i]"></div>
+                    <div class="col">
+                        <div class="row text-muted">{{cusine.cusineName}}</div>
+                        <div class="row">{{cusine.cusineSize}}</div>
+                    </div>
+                    <!-- <div class="col"> <a href="#">-</a><a href="#" class="border">1</a><a href="#">+</a> </div> -->
+                    <div class="col">&#8377; {{cusine.cusineCost}} <span class="close" (click)="deleteCartItem(cartItems[i].cartID)">&#10005;</span></div>
+                </div>
+            </div>
+            
+           
+            <div class="back-to-shop"><a routerLink="/main">&leftarrow;</a><a routerLink="/main"class="text-muted">Back to shop</a></div>
+        </div>
+        <div class="col-md-4 summary">
+            <div>
+                <h5><b>Summary</b></h5>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col" style="padding-left:0;">ITEMS {{itemCount}}</div>
+                <div class="col text-right">&#8377; {{total}}</div>
+            </div>
+            <form>
+                <p>SHIPPING</p> <select>
+                    <option class="text-muted">Home-Delivery- &#8377;50.00</option>
+                </select>
+                <!-- <p>GIVE CODE</p> <input id="code" placeholder="Enter your code"> -->
+            </form>
+            <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
+                <div class="col">TOTAL PRICE</div>
+                <div class="col text-right">&#8377; {{total+50}}</div>
+            </div> <button class="btn" (click)="checkout()">CHECKOUT</button>
+        </div>
+    </div>
+
+</div>
+<br><br><br><br><br><br><br><br><br>
+</section>

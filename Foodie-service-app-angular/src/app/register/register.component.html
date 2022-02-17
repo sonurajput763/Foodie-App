@@ -1,0 +1,104 @@
+<header>
+  <div class="navbar navbar-expand-lg  navbar-light bg-light navbar-default navbar-fixed-top">
+    <img src="./assets/logo.jpg" height="60px" width="60px" style="border-radius: 40%;" alt="">
+    <pre>    </pre>
+    <p class="navbar-brand" href="#" style="font-size: 40px; text-decoration: none;"> <b> Foodie</b></p>
+    <pre>   </pre><a href="#" routerLink="/" class="logo">Home</a>
+    <pre>   </pre><a href="#" routerLink="/about" class="logo">About</a>
+    <pre>   </pre><a href="#" routerLink="/contact" class="logo">Contact</a>
+    <pre>                                                                                                            </pre>
+    <nav>
+      <ul>
+        <li><a routerLink="/login">Login</a> </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<div style="background: -webkit-linear-gradient(to bottom right, rgba(240, 147, 251, 1), rgba(245, 87, 108, 1));
+  background: linear-gradient(to bottom right, rgb(120, 175, 230), rgb(75, 111, 179))">
+  <br><br><br>
+
+  <div class="content">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <img src="../../assets/undraw_remotely_2j6y.svg" alt="Image" class="img-fluid">
+        </div>
+        <div class="col-md-6 contents">
+          <div class="row justify-content-center">
+            <div class="col-md-8">
+              <div class="mb-4">
+                <h1>Register</h1>
+
+              </div>
+              <form action="/action_page.php" class="was-validated" method="post">
+                <div class="form-group first">
+                  <label for="username">Name</label>
+
+                  <input type="text" class="form-control" [(ngModel)]="user.name" name="name" id="username" required>
+                  <div class="valid-feedback">Valid.</div>
+                  <div class="invalid-feedback">Please fill out this field.</div>
+
+                </div>
+                <div class="form-group first">
+                  <label for="username">E-Mail</label>
+                  <input type="email" class="form-control" [(ngModel)]="user.email" name="email" id="username" required>
+                  <div class="valid-feedback">Valid.</div>
+                  <div class="invalid-feedback">Please fill out this field.</div>
+
+                </div>
+                <div class="form-group first">
+                  <label for="username">Password</label>
+                  <input type="password" class="form-control" [(ngModel)]="user.password" name="password" id="username"
+                    required>
+                  <div class="valid-feedback">Valid.</div>
+                  <div class="invalid-feedback">Please fill out this field.</div>
+
+                </div>
+                <div class="form-group first">
+                  <label for="username">Mobile</label>
+                  <input type="text" class="form-control" [(ngModel)]="user.phoneNo" name="phone" id="username"
+                    required>
+                  <div class="valid-feedback">Valid.</div>
+                  <div class="invalid-feedback">Please fill out this field.</div>
+
+                </div>
+                <div class="col-md-6">
+                  <div class="form-outline">
+                    <label class="form-label" for="form3Example1q">profile pic</label>
+                    <input type="file" class="form-control" id="file" (change)="onChange($event)" name="profile"
+                      required>
+                    <div class="valid-feedback">Valid.</div>
+                    <div class="invalid-feedback">Please fill out this field.</div>
+                  </div>
+                </div><br>
+
+                <div class="col-12">
+                  <div class="form-check">
+                    <p>Account Type: </p>
+
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" [(ngModel)]="user.accountType" type="radio"
+                        name="inlineRadioOptions" id="femaleGender" value="customer" checked required />
+                      <label class="form-check-label" for="femaleGender">Customer</label>
+                    </div>
+
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" required type="radio" [(ngModel)]="user.accountType"
+                        name="inlineRadioOptions" id="maleGender" value="vendor" />
+                      <label class="form-check-label" for="maleGender">Vendor</label>
+                    </div>
+                  </div>
+                </div>
+                <input type="submit" value="Register" class="btn btn-block btn-primary" (click)="postData()"><br><br>
+
+
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br><br><br><br>
+</div>

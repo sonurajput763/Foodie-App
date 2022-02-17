@@ -1,0 +1,68 @@
+<header>
+  <div class="navbar navbar-expand-lg  navbar-light bg-light navbar-default navbar-fixed-top">
+    <img src="./assets/logo.jpg" height="60px" width="60px" style="border-radius: 40%;" alt="">
+    <pre>    </pre>
+    <p class="navbar-brand" href="#" style="font-size: 40px; text-decoration: none;"> <b> Foodie</b></p>
+    <pre>   </pre><a routerLink="" class="logo">Home</a>
+    <pre>   </pre><a  routerLink="/about" class="logo">About</a>
+    <pre>   </pre><a  routerLink="/contact" class="logo">Contact</a>
+    <pre>                                                                                                            </pre>
+    <nav>
+      <ul>
+        <li><a routerLink="/register">Register</a> </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<div style="background: -webkit-linear-gradient(to bottom right, rgba(240, 147, 251, 1), rgba(245, 87, 108, 1));
+                  background: linear-gradient(to bottom right, rgb(120, 175, 230), rgb(75, 111, 179))">
+
+  <div class="content">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <img src="../../assets/gifs/comp_3.gif" alt="Image" class="img-fluid">
+        </div>
+        <div class="col-md-6 contents">
+          <div class="row justify-content-center">
+            <div class="col-md-8">
+              <div class="mb-4">
+                <h1>Log In</h1>
+
+              </div>
+              <form action="/action_page.php" class="was-validated" method="post">
+
+                <label for="">E-Mail</label>
+                <div class="form-group first">
+                
+
+                  <input type="text" class="form-control" required [(ngModel)]="userauth.email" name="email"
+                    id="username">
+                  <hr>
+                  <div class="valid-feedback">Valid.</div>
+                  <div class="invalid-feedback">Please fill out this field.</div>
+
+                </div><br><br>
+                <label for="">Password</label>
+                <div class="form-group last mb-4">
+
+                  <input type="password" class="form-control" required [(ngModel)]="userauth.password" name="password"
+                    id="password">
+
+                  <hr>
+                  <div class="valid-feedback">Valid.</div>
+                  <div class="invalid-feedback">Please fill out this field.</div>
+
+                </div><br><div style="color:red" *ngIf="error">Incorrect credentials</div><br>
+                
+                <input type="submit" (click)="login()" value="Log In" class="btn btn-block btn-primary"><br><br>
+
+
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

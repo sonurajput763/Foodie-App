@@ -1,0 +1,8 @@
+#contact .card:hover i,#contact .card:hover h4{
+	color: #87d37c;
+}
+body{
+  background-image: url("../../assets/contact.jpg");
+  background-size: 100%;
+  height: 700px;
+}
